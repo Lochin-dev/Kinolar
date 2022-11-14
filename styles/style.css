@@ -25,6 +25,11 @@
    font-family: 'Rubik Bubbles', cursive;
    font-size: 50px;
 }
+#wrap{
+   position:relative;
+   left: 290px;
+   
+}
 
 .card{
    width: 380px;
