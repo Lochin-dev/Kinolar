@@ -1,81 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap"
+      rel="stylesheet"
+    />
+    <!-- BOOTSTRAP MIN CSS -->
+    <link rel="stylesheet" href="./styles/bootstrap.min.css" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>lesson-2</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap" rel="stylesheet">
-  <!-- BOOTSTRAP MIN CSS -->
-  <link rel="stylesheet" href="./styles/bootstrap.min.css" />
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="./styles/style.css" />
-  <title>lesson-2</title>
-</head>
+  <body>
+    <header class="fixed-top bg-info">
+      <div class="container">
+        <nav class="navbar navbar-light bg-info justify-content-between p-2">
+          <h1 class="title">movies</h1>
+          <form class="form-inline d-flex gap-3">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </nav>
+      </div>
+    </header>
 
-<body>
-  <header class="fixed-top bg-info">
-    <div class="container">
-      <nav class="navbar navbar-light bg-info justify-content-between p-2">
-        <h1 class="title">movies</h1>
-        <form class="form-inline d-flex gap-3">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
-    </div>
-  </header>
+    <main class="position-relative gap-1 pt-5 mt-4">
+      <div class="modal-window modal-hide">
+        <div class="modal-container position-relative">
+          <div
+            class="btn py-0 btn-danger position-absolute end-0 me-2"
+            id="close"
+          >
+            X
+          </div>
+          <div class="modal-content container">
+            
+          </div>
+        </div>
+      </div>
 
-  <main class="pt-5 mt-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 bg-light position-fixed">
-          <form action="#" id="submitForm">
-            <label for="filmName" class="pt-3 fs-4 w-75">
-              Enter film name
-              <input type="search" class="form-control" placeholder="Enter film name" id="filmName" />
-            </label>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 bg-light">
+            <form action="#" id="submitForm">
+              <label for="filmName" class="pt-3 fs-4 w-75">
+                Enter film name
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Enter film name"
+                  id="filmName"
+                />
+              </label>
 
-            <label for="filmReting" class="pt-3 fs-4 w-75">
-              Enter film reting
-              <input type="number" class="form-control" min="1" max="10" placeholder="Enter film reting"
-                id="filmReting" />
-            </label>
+              <label for="filmReting" class="pt-3 fs-4 w-75">
+                Enter film reting
+                <input
+                  type="number"
+                  class="form-control"
+                  min="1"
+                  max="10"
+                  placeholder="Enter film reting"
+                  id="filmReting"
+                />
+              </label>
 
-            <!-- <label for="filmYear" class="pt-3 pb-3 fs-4 w-75">
+              <!-- <label for="filmYear" class="pt-3 pb-3 fs-4 w-75">
               Enter film Year
               <input type="number" class="form-control" min="1990" max="2022" placeholder="Enter film Year"
                 id="filmYear" />
             </label> -->
 
-            <select id="category" class="form-select mt-4 w-75 p-2">
-              <option value="all" selected disabled>
-                Select film category
-              </option>
-            </select>
+              <select id="category" class="form-select mt-4 w-75 p-2">
+                <option value="all" selected disabled>
+                  Select film category
+                </option>
+              </select>
 
-            <button type="submit" class="btn btn-success w-75 my-3 p-2">
-              SEARCH
-            </button>
-          </form>
+              <button type="submit" class="btn btn-success w-75 my-3 p-2">
+                SEARCH
+              </button>
+            </form>
 
-          <div id="card-res" class="d-none card w-75 my-3 p-3 shadow bg-lighit">
-            <h5 id="res" class="text-success"></h5>
+            <div
+              id="card-res"
+              class="d-none card w-75 my-3 p-3 shadow bg-lighit"
+            >
+              <h5 id="res" class="text-success"></h5>
+            </div>
           </div>
+          <div id="wrap" class="col-md-7 bg-light">
+            <div class="wrapper"></div>
+          </div>
+          <div class="col-md bg-light"></div>
         </div>
-        <div id="wrap" class="col-md-7 bg-light">
-          <div class="wrapper"></div>
-        </div>
-        <div class="col-md bg-light"></div>
       </div>
-    </div>
-  </main>
-</body>
-<!--MAIN SCRIPT  -->
-<script src="./scripts/utils.js"></script>
-<script src="./scripts/db.js"></script>
-<script src="./sctipt.js"></script>
-
+    </main>
+  </body>
+  <!--MAIN SCRIPT  -->
+  <script src="./scripts/utils.js"></script>
+  <script src="./scripts/db.js"></script>
+  <script src="./sctipt.js"></script>
 </html>
